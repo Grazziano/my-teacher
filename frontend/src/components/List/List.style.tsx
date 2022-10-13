@@ -16,6 +16,11 @@ export const ListStyled = styled('ul')`
   }
 `;
 
+export const EmptyList = styled('h2')`
+  text-align: center;
+  padding: ${(props) => props.theme.spacing(20, 0)};
+`;
+
 export const ListItem = styled('li')`
   list-style: none;
 `;
