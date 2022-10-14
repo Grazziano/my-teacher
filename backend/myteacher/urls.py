@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 from app.views import HomeApiView
-from teacher.views import TeacherAPIView
+from teacher.views import TeacherAPIView, CadastrarAulaAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeApiView.as_view()),
     path('professores/', TeacherAPIView.as_view()),
+    path('professores/', TeacherAPIView.as_view()),
+    path('professores/<int:id>/aulas', CadastrarAulaAPIView.as_view()),
 ]
