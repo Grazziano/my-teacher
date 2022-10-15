@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import { Teacher } from '../../@types/teacher';
+import { FormatadorService } from '../../services/FormatadorService';
 import {
   Description,
   EmptyList,
@@ -26,14 +27,12 @@ const List = (props: ListProps) => {
               <Information>
                 <Name>{teacher.name}</Name>
                 <Value>
-                  {teacher.hour_value.toLocaleString('pt-BR', {
-                    minimumFractionDigits: 2,
-                    style: 'currency',
-                    currency: 'BRL',
-                  })}{' '}
-                  por hora
+                  {FormatadorService.valorMonetario(teacher.hour_value)} por
+                  hora
                 </Value>
-                <Description>{teacher.description}</Description>
+                <Description>
+                  {FormatadorService.limitarTexto(teacher.description, 200)}
+                </Description>
                 <Button sx={{ width: '70%' }}>Marcar Aula com Grazziano</Button>
               </Information>
             </ListItem>
