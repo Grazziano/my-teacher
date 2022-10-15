@@ -15,6 +15,10 @@ export function useIndex() {
     });
   }, []);
 
+  useEffect(() => {
+    limparFormulario();
+  }, [selectedTeacher]);
+
   function marcarAula() {
     if (selectedTeacher !== null) {
       if (validarDadosAula()) {
@@ -37,6 +41,11 @@ export function useIndex() {
 
   function validarDadosAula() {
     return name.length > 0 && email.length > 0;
+  }
+
+  function limparFormulario() {
+    setName('');
+    setEmail('');
   }
 
   return {
