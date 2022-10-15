@@ -19,6 +19,7 @@ const Home: NextPage = () => {
     setEmail,
     selectedTeacher,
     setSelectedTeacher,
+    marcarAula,
   } = useIndex();
 
   return (
@@ -59,7 +60,7 @@ const Home: NextPage = () => {
 
         <DialogActions sx={{ mt: 5 }}>
           <Button onClick={() => setSelectedTeacher(null)}>Cancelar</Button>
-          <Button>Marcar</Button>
+          <Button onClick={() => marcarAula()}>Marcar</Button>
         </DialogActions>
       </Dialog>
     </div>
