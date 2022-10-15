@@ -4,6 +4,7 @@ import {
   Dialog,
   DialogActions,
   Grid,
+  Snackbar,
   TextField,
 } from '@mui/material';
 import type { NextPage } from 'next';
@@ -20,6 +21,8 @@ const Home: NextPage = () => {
     selectedTeacher,
     setSelectedTeacher,
     marcarAula,
+    message,
+    setMessage,
   } = useIndex();
 
   return (
@@ -63,6 +66,13 @@ const Home: NextPage = () => {
           <Button onClick={() => marcarAula()}>Marcar</Button>
         </DialogActions>
       </Dialog>
+
+      <Snackbar
+        message={message}
+        open={message.length > 0}
+        autoHideDuration={2500}
+        onClose={() => setMessage('')}
+      />
     </div>
   );
 };
