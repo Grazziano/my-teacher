@@ -11,12 +11,23 @@ import List from '../src/components/List/List';
 import { useIndex } from '../src/hooks/pages/useIndex';
 
 const Home: NextPage = () => {
-  const { teachersList, name, setName, email, setEmail } = useIndex();
+  const {
+    teachersList,
+    name,
+    setName,
+    email,
+    setEmail,
+    selectedTeacher,
+    setSelectedTeacher,
+  } = useIndex();
 
   return (
     <div>
       <Box sx={{ backgroundColor: 'secondary.main' }}>
-        <List teachers={teachersList}></List>
+        <List
+          teachers={teachersList}
+          onSelect={(teacher) => setSelectedTeacher(teacher)}
+        ></List>
       </Box>
       <Dialog open={true} fullWidth PaperProps={{ sx: { p: 5 } }}>
         <Grid container spacing={2}>
